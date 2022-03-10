@@ -1,7 +1,16 @@
+import { UserProvider } from "./contexts/UserContext";
+
+import Main from "./pages/Main";
+
+import { GlobalStyle } from "./styles/global";
+
 function App() {
   return (
     <div className='App'>
-      <h1>Olá mundo!</h1>
+      <UserProvider>
+        <Main />
+        <GlobalStyle />
+      </UserProvider>
     </div>
   );
 }
