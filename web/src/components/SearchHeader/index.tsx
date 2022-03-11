@@ -1,9 +1,7 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import { api } from "../../services/api";
 
 import {
-  Container,
   Header,
   ContainerTitle,
   ContainerSearch,
@@ -13,38 +11,32 @@ import {
   Button,
 } from "./styles";
 
-type Props = {};
-
-const SearchHeader = (props: Props) => {
+const SearchHeader = () => {
   const [name, setName] = useState("");
   const { userData, getUser } = useContext(UserContext);
-
-  console.log(userData);
 
   const handleClick = () => {
     getUser(name);
   };
 
   return (
-    <Container>
-      <Header>
-        <ContainerTitle>
-          <GitHubIcon className='devicon-github-plain'></GitHubIcon>
+    <Header>
+      <ContainerTitle>
+        <GitHubIcon className='devicon-github-plain'></GitHubIcon>
 
-          <Title>GitHub Users</Title>
-        </ContainerTitle>
+        <Title>GitHub Users</Title>
+      </ContainerTitle>
 
-        <ContainerSearch>
-          <Input
-            type='text'
-            placeholder='Ex: LuisEduardo20'
-            onChange={(e) => setName(e.target.value)}
-          />
+      <ContainerSearch>
+        <Input
+          type='text'
+          placeholder='Ex: LuisEduardo20'
+          onChange={(e) => setName(e.target.value)}
+        />
 
-          <Button onClick={handleClick}>Pesquisar</Button>
-        </ContainerSearch>
-      </Header>
-    </Container>
+        <Button onClick={handleClick}>Pesquisar</Button>
+      </ContainerSearch>
+    </Header>
   );
 };
 

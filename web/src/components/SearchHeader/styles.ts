@@ -1,12 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  background-color: var(--gray);
-`;
-
 export const Header = styled.header`
   height: 100%;
-  background-color: var(--yellow);
+  background-color: #e1e1e1;
 
   display: flex;
   flex-direction: column;
@@ -26,18 +22,19 @@ export const GitHubIcon = styled.i`
 `;
 
 export const Title = styled.h1`
-  color: var(--gray);
+  color: #2f2531;
 `;
 
 export const Input = styled.input`
   width: 14rem;
-  height: 2rem;
+  height: 3rem;
   padding: 10px;
   margin-right: 1rem;
 
   border: none;
   border-radius: 5px;
 
+  font-size: 1.1rem;
   color: var(--black);
 
   outline: none;
@@ -45,11 +42,13 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   width: 6rem;
-  height: 2rem;
+  height: 3rem;
+
+  font-size: 1.1rem;
 
   border: none;
   border-radius: 5px;
 
-  color: var(--yellow);
-  background-color: var(--black);
+  color: #f8f9ff;
+  background-color: #9d4870;
 `;
