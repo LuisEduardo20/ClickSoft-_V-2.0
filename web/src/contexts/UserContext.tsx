@@ -41,7 +41,9 @@ type user = Pick<
 
 interface TransactionProviderProps {
   userData: user;
+  searchedUsersList: user[];
   getUser: (name: string) => void;
+  setCardUser: (user: user) => void;
 }
 
 export const UserContext =
@@ -57,31 +59,48 @@ export const UserProvider = ({
   children,
 }: ContextProps) => {
   const [userData, setUserData] = useState<any>({});
+  const [searchedUsersList, setSearchedUsersList] =
+    useState<any>([]);
+
+  const addSearchedUser = (newUser: user) => {
+    const searchedNames = searchedUsersList.map(
+      (user: user) => user.name
+    );
+
+    if (!searchedNames.includes(newUser.name)) {
+      setSearchedUsersList([...searchedUsersList, newUser]);
+    }
+  };
 
   const getUser = (name: string) => {
     api.get(`/users/${name}`).then(({ data }) => {
-      const {
-        avatar_url,
-        name,
-        login,
-        location,
-        repos_url,
-      }: user = data;
-
-      const teste: user = {
-        avatar_url,
-        name,
-        login,
-        location,
-        repos_url,
+      const user: user = {
+        avatar_url: data.avatar_url,
+        name: data.name,
+        login: data.login,
+        location: data.location,
+        repos_url: data.repos_url,
       };
 
-      setUserData(teste);
+      setUserData(user);
+
+      addSearchedUser(user);
     });
   };
 
+  const setCardUser = (user: user) => {
+    setUserData(user);
+  };
+
   return (
-    <UserContext.Provider value={{ userData, getUser }}>
+    <UserContext.Provider
+      value={{
+        userData,
+        searchedUsersList,
+        getUser,
+        setCardUser,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
