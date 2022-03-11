@@ -17,14 +17,12 @@ type Props = {};
 
 const SearchHeader = (props: Props) => {
   const [name, setName] = useState("");
-  const { userData, setUserData } = useContext(UserContext);
+  const { userData, getUser } = useContext(UserContext);
 
   console.log(userData);
 
   const handleClick = () => {
-    api
-      .get(`/users/${name}`)
-      .then(({ data }) => setUserData(data));
+    getUser(name);
   };
 
   return (
