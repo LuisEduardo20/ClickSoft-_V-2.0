@@ -2,32 +2,44 @@ import { useContext } from "react";
 
 import { UserContext } from "../../contexts/UserContext";
 
-import { Container, ProfilePic } from "./styles";
+import {
+  Container,
+  ContainerData,
+  InfoContainerData,
+  ProfilePic,
+  Text,
+} from "./styles";
 
 const UserCard = () => {
   const { userData } = useContext(UserContext);
 
   const { avatar_url, name, login, location } = userData;
 
-  console.log(Object.values(userData).length);
-  console.log(!!userData);
-
   return (
     <Container>
       {Object.values(userData).length === 0 ? (
         <></>
       ) : (
-        <>
+        <ContainerData>
           <ProfilePic
             src={avatar_url}
             alt='Foto de perfil do github'
           />
-          <div>
-            <p>{name}</p>
-            <p>{login}</p>
-            <p>{location}</p>
-          </div>
-        </>
+
+          <InfoContainerData>
+            <Text>
+              <strong>Nome:</strong> {name}
+            </Text>
+
+            <Text>
+              <strong>Nickname:</strong> {login}
+            </Text>
+
+            <Text>
+              <strong>Localidade:</strong> {location}
+            </Text>
+          </InfoContainerData>
+        </ContainerData>
       )}
     </Container>
   );
