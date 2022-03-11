@@ -1,11 +1,9 @@
 import SearchedUsersList from "../../components/SearchedUsersList";
-import SearchUser from "../../components/SearchUser";
+import SearchUser from "../../components/MainSection";
 
 import { Container } from "./styles";
 
-type Props = {};
-
-const Main = (props: Props) => {
+const Main = () => {
   return (
     <Container>
       <SearchedUsersList />
