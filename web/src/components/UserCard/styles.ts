@@ -54,7 +54,7 @@ export const ProfilePic = styled.img`
 
 export const Text = styled.p`
   color: #2f2531;
-  font-size: 2rem;
+  font-size: 1.5rem;
 
   @media screen and (max-width: 768px) {
     font-size: 1.2rem;
