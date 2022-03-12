@@ -46,6 +46,8 @@ export const ProfilePic = styled.img`
 
   border-radius: 0.25rem;
 
+  cursor: pointer;
+
   @media screen and (max-width: 768px) {
     width: 200px;
     height: 200px;
