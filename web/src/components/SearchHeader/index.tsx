@@ -13,10 +13,14 @@ import {
 
 const SearchHeader = () => {
   const [name, setName] = useState("");
-  const { userData, getUser } = useContext(UserContext);
+  const { getUser } = useContext(UserContext);
 
   const handleClick = () => {
-    getUser(name);
+    if (name.length > 0) {
+      getUser(name);
+    } else {
+      window.alert("Preencha um nome válido");
+    }
   };
 
   return (
