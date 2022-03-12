@@ -9,8 +9,6 @@ export const Container = styled.ul`
   align-items: center;
   flex-direction: column;
 
-  /* gap: 2rem; */
-
   grid-area: UsersList;
 `;
 
@@ -57,6 +55,8 @@ export const Picture = styled.img`
   height: 100px;
 
   border-radius: 5px;
+
+  cursor: pointer;
 `;
 
 export const Name = styled.p`
