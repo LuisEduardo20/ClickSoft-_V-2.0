@@ -1,4 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
+import { Alert } from "react-native";
+
 import { api } from "../services/api";
 
 import { user } from "../models/user.model";
@@ -65,7 +67,9 @@ export const UserProvider = ({
 
         addSearchedUser(user);
       })
-      .catch(() => window.alert("Usuário não encontrado"));
+      .catch(() =>
+        Alert.alert("Error", "Usuário não encontrado")
+      );
   };
 
   const setCardUser = (user: user) => {
