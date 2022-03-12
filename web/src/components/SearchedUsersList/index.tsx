@@ -14,8 +14,11 @@ import {
 } from "./styles";
 
 const SearchedUsersList = () => {
-  const { searchedUsersList, setCardUser } =
-    useContext(UserContext);
+  const {
+    searchedUsersList,
+    setCardUser,
+    changeModalVisibility,
+  } = useContext(UserContext);
 
   return (
     <Container>
@@ -30,6 +33,7 @@ const SearchedUsersList = () => {
             <Picture
               src={user.avatar_url}
               alt='GitHub Profile Picture'
+              onClick={() => changeModalVisibility(true)}
             />
 
             <ContainerUserData>
