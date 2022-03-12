@@ -1,30 +1,79 @@
 import { apiResponseRepositories } from "../../models/apiResponse.model";
+import {
+  Divider,
+  Container,
+  Icon,
+  Text,
+  RepositoryLink,
+} from "./styles";
 
 type RepositoryProps = {
   data: apiResponseRepositories;
 };
 
 const RepositoryList = ({ data }: RepositoryProps) => {
-  console.log("data:", data);
-
   return (
     <>
-      <p>
-        Nome:{" "}
-        <a href={data.html_url} target='__blank'>
-          {data.name}
-        </a>
-      </p>
+      <Divider></Divider>
+      <Container>
+        <Text>
+          <strong>Nome: </strong>
+          <RepositoryLink
+            href={data.html_url}
+            target='__blank'
+          >
+            {data.name}
+          </RepositoryLink>
+          <Icon className='fa-brands fa-github-alt'></Icon>
+        </Text>
 
-      <p>Linguagem utilizada: {data.language}</p>
+        {data.language ? (
+          <Text>
+            <strong>Linguagem: </strong>
+            {data.language}{" "}
+            {data.language === "HTML" ? (
+              <Icon
+                className={`devicon-html5-plain colored`}
+              ></Icon>
+            ) : data.language === "CSS" ? (
+              <Icon
+                className={`devicon-css3-plain colored`}
+              ></Icon>
+            ) : (
+              <Icon
+                className={`devicon-${data.language.toLowerCase()}-plain colored`}
+              ></Icon>
+            )}
+          </Text>
+        ) : (
+          <></>
+        )}
 
-      <p>Descrição: {data.description}</p>
+        {data.description ? (
+          <Text>
+            <strong>Descrição: </strong> {data.description}
+          </Text>
+        ) : (
+          <></>
+        )}
 
-      <p>Criado em: {data.created_at}</p>
+        <Text>
+          <strong>Criado em: </strong>
 
-      <p>Último push: {data.pushed_at}</p>
+          {Intl.DateTimeFormat("pt-BR").format(
+            new Date(data.created_at)
+          )}
+          <Icon className='fa-regular fa-calendar-days'></Icon>
+        </Text>
 
-      <br />
+        <Text>
+          <strong>Último push: </strong>
+          {Intl.DateTimeFormat("pt-BR").format(
+            new Date(data.pushed_at)
+          )}
+          <Icon className='fa-solid fa-code-pull-request'></Icon>
+        </Text>
+      </Container>
     </>
   );
 };
