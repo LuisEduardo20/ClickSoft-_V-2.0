@@ -44,20 +44,34 @@ const UserModal = () => {
           />
 
           <TextContainer>
-            <p>Nome: {userData.name}</p>
-
-            <p>Login: {userData.login}</p>
-
-            <p>Localidade: {userData.location}</p>
-
-            <p>Id: {userData.id}</p>
-
             <p>
-              Quantidade de seguidores: {userData.followers}
+              Nome:
+              <strong> {userData.name}</strong>
             </p>
 
             <p>
-              Repositórios públicos: {userData.public_repos}
+              Login:
+              <strong> {userData.login}</strong>
+            </p>
+
+            <p>
+              Localidade:
+              <strong> {userData.location}</strong>
+            </p>
+
+            <p>
+              Id:
+              <strong> {userData.id}</strong>
+            </p>
+
+            <p>
+              Quantidade de seguidores:
+              <strong> {userData.followers}</strong>
+            </p>
+
+            <p>
+              Repositórios públicos:
+              <strong> {userData.public_repos}</strong>
             </p>
           </TextContainer>
         </UserDataContainer>
@@ -65,9 +79,16 @@ const UserModal = () => {
         <Title>Repositórios</Title>
         {!!userData.repos_list ? (
           <ul>
-            {userData.repos_list.map((repositorie) => {
-              return <RepositoryList data={repositorie} />;
-            })}
+            {userData.repos_list.map(
+              (repositorie, index) => {
+                return (
+                  <RepositoryList
+                    data={repositorie}
+                    key={`repository-${index}`}
+                  />
+                );
+              }
+            )}
           </ul>
         ) : (
           <></>
