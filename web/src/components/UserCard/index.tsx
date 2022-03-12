@@ -11,7 +11,8 @@ import {
 } from "./styles";
 
 const UserCard = () => {
-  const { userData } = useContext(UserContext);
+  const { userData, changeModalVisibility } =
+    useContext(UserContext);
 
   const { avatar_url, name, login, location } = userData;
 
@@ -24,6 +25,7 @@ const UserCard = () => {
           <ProfilePic
             src={avatar_url}
             alt='Foto de perfil do github'
+            onClick={() => changeModalVisibility(true)}
           />
 
           <InfoContainerData>
