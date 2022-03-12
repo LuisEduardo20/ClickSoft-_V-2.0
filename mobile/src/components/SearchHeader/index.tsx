@@ -15,9 +15,7 @@ import { UserContext } from "../../contexts/UserContext";
 
 const SearchHeader = () => {
   const [name, setName] = useState("");
-  const { userData, getUser } = useContext(UserContext);
-
-  console.log(userData);
+  const { getUser } = useContext(UserContext);
 
   const handleClick = () => {
     if (name.length > 0) {
