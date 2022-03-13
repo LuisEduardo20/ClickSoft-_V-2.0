@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   width: 100%;
-  height: 350px;
+  height: 300px;
   background-color: #f8f9ff;
 
   display: flex;
@@ -11,8 +11,8 @@ export const Container = styled.View`
 `;
 
 export const ProfilePic = styled.Image`
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 5px;
 `;
 
