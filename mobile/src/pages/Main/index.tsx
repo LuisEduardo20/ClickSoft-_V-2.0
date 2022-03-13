@@ -4,15 +4,20 @@ import React from "react";
 import SearchHeader from "../../components/SearchHeader";
 import UserCard from "../../components/UserCard";
 import SearchedUsers from "../../components/SearchedUsers";
+import UserModal from "../../components/UserModal";
 
 const Main = () => {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <SearchHeader />
+
         <UserCard />
+
         <SearchedUsers />
       </ScrollView>
+
+      <UserModal />
     </View>
   );
 };
