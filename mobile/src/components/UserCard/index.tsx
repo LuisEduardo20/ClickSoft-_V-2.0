@@ -1,3 +1,4 @@
+import { TouchableOpacity } from "react-native";
 import React, { useContext } from "react";
 
 import { UserContext } from "../../contexts/UserContext";
@@ -11,7 +12,8 @@ import {
 } from "./styles";
 
 const UserCard = () => {
-  const { userData } = useContext(UserContext);
+  const { userData, changeModalVisibility } =
+    useContext(UserContext);
 
   return (
     <Container>
@@ -19,9 +21,14 @@ const UserCard = () => {
         <></>
       ) : (
         <>
-          <ProfilePic
-            source={{ uri: userData.avatar_url }}
-          />
+          <TouchableOpacity
+            onPress={() => changeModalVisibility(true)}
+          >
+            <ProfilePic
+              source={{ uri: userData.avatar_url }}
+            />
+          </TouchableOpacity>
+
           <TextContainer>
             <UserDataText>
               <UserDataTitle>Nome: </UserDataTitle>
