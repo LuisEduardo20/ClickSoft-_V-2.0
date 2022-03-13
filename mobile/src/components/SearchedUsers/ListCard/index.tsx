@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { TouchableOpacity } from "react-native";
+
 import { UserContext } from "../../../contexts/UserContext";
 
 import { user } from "../../../models/user.model";
@@ -17,12 +19,20 @@ interface CardProps {
 }
 
 const ListCard = ({ user }: CardProps) => {
-  const { setCardUser } = useContext(UserContext);
+  const { setCardUser, changeModalVisibility } =
+    useContext(UserContext);
 
   return (
     <Container>
       <ImageContainer>
-        <ProfilePic source={{ uri: user.avatar_url }} />
+        <TouchableOpacity
+          onPress={() => {
+            changeModalVisibility(true);
+            setCardUser(user);
+          }}
+        >
+          <ProfilePic source={{ uri: user.avatar_url }} />
+        </TouchableOpacity>
       </ImageContainer>
 
       <DataContainer>
