@@ -7,6 +7,7 @@ import RepositoryList from "../RepositoriesList";
 import {
   Container,
   TitleContainer,
+  RepositoriesContainer,
   CloseButton,
   ProfilePicture,
   Title,
@@ -25,6 +26,15 @@ const UserModal = () => {
       isOpen={modalVisible}
       shouldCloseOnEsc={true}
       shouldCloseOnOverlayClick={true}
+      style={{
+        overlay: {
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+        },
+
+        content: {
+          backgroundColor: "#e1e1e1",
+        },
+      }}
     >
       <Container>
         <TitleContainer>
@@ -45,54 +55,56 @@ const UserModal = () => {
 
           <TextContainer>
             <p>
-              Nome:
-              <strong> {userData.name}</strong>
+              <strong>Id: </strong>
+              {userData.id}
             </p>
 
             <p>
-              Login:
-              <strong> {userData.login}</strong>
+              <strong>Nome: </strong>
+              {userData.name}
             </p>
 
             <p>
-              Localidade:
-              <strong> {userData.location}</strong>
+              <strong>Login: </strong>
+              {userData.login}
             </p>
 
             <p>
-              Id:
-              <strong> {userData.id}</strong>
+              <strong>Localidade: </strong>
+              {userData.location}
             </p>
 
             <p>
-              Quantidade de seguidores:
-              <strong> {userData.followers}</strong>
+              <strong>Quantidade de seguidores: </strong>
+              {userData.followers}
             </p>
 
             <p>
-              Repositórios públicos:
-              <strong> {userData.public_repos}</strong>
+              <strong>Repositórios públicos: </strong>
+              {userData.public_repos}
             </p>
           </TextContainer>
         </UserDataContainer>
 
         <Title>Repositórios</Title>
-        {!!userData.repos_list ? (
-          <ul>
-            {userData.repos_list.map(
-              (repositorie, index) => {
-                return (
-                  <RepositoryList
-                    data={repositorie}
-                    key={`repository-${index}`}
-                  />
-                );
-              }
-            )}
-          </ul>
-        ) : (
-          <></>
-        )}
+        <RepositoriesContainer>
+          {!!userData.repos_list ? (
+            <ul>
+              {userData.repos_list.map(
+                (repository, index) => {
+                  return (
+                    <RepositoryList
+                      data={repository}
+                      key={`repository-${index}`}
+                    />
+                  );
+                }
+              )}
+            </ul>
+          ) : (
+            <></>
+          )}
+        </RepositoriesContainer>
       </Container>
     </ReactModal>
   );
