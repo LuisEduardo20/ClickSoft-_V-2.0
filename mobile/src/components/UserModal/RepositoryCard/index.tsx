@@ -23,8 +23,6 @@ interface RepositoryProps {
 }
 
 const RepositoryCard = ({ data }: RepositoryProps) => {
-  Moment.locale("pt-br");
-
   return (
     <>
       <Divider />
