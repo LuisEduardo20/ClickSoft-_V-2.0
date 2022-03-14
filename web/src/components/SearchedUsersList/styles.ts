@@ -46,7 +46,7 @@ export const Title = styled.h3`
   width: 100%;
   margin: 1rem 0;
 
-  color: #f8f9ff;
+  color: var(--white);
   text-align: center;
 `;
 
@@ -68,8 +68,8 @@ export const Name = styled.p`
   justify-content: center;
   flex-wrap: wrap;
 
-  background-color: #9d4870;
-  color: #f8f9ff;
+  background-color: var(--purple);
+  color: var(--white);
 
   border-radius: 0.25rem;
 
@@ -78,10 +78,10 @@ export const Name = styled.p`
 
 export const Login = styled.p`
   width: 100%;
-  color: #f8f9ff;
+  color: var(--white);
 `;
 
 export const Location = styled.p`
   width: 100%;
-  color: #f8f9ff;
+  color: var(--white);
 `;

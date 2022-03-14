@@ -49,6 +49,6 @@ export const Button = styled.button`
   border: none;
   border-radius: 5px;
 
-  color: #f8f9ff;
+  color: var(--white);
   background-color: #9d4870;
 `;

@@ -17,6 +17,10 @@ export const TitleContainer = styled.div`
   align-items: center;
 `;
 
+export const RepositoriesContainer = styled.div`
+  width: 100%;
+`;
+
 export const Title = styled.h2`
   color: #2f2531;
 `;

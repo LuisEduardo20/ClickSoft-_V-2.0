@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const View = styled.div`
+  width: 100%;
+`;
+
 export const Divider = styled.div`
   width: 100%;
   border: 1px solid black;
