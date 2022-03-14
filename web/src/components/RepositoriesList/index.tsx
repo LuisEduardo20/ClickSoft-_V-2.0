@@ -1,5 +1,6 @@
 import { apiResponseRepositories } from "../../models/apiResponse.model";
 import {
+  View,
   Divider,
   Container,
   Icon,
@@ -13,7 +14,7 @@ type RepositoryProps = {
 
 const RepositoryList = ({ data }: RepositoryProps) => {
   return (
-    <>
+    <View>
       <Divider></Divider>
       <Container>
         <Text>
@@ -74,7 +75,7 @@ const RepositoryList = ({ data }: RepositoryProps) => {
           <Icon className='fa-solid fa-code-pull-request'></Icon>
         </Text>
       </Container>
-    </>
+    </View>
   );
 };
 
