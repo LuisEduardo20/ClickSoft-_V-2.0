@@ -26,18 +26,20 @@ const SearchedUsersList = () => {
 
       {searchedUsersList.map((user, index) => {
         return (
-          <UserCard
-            onClick={() => setCardUser(user)}
-            key={`user-${index}`}
-          >
+          <UserCard key={`user-${index}`}>
             <Picture
               src={user.avatar_url}
               alt='GitHub Profile Picture'
-              onClick={() => changeModalVisibility(true)}
+              onClick={() => {
+                changeModalVisibility(true);
+                setCardUser(user);
+              }}
             />
 
             <ContainerUserData>
-              <Name>{user.name}</Name>
+              <Name onClick={() => setCardUser(user)}>
+                {user.name}
+              </Name>
 
               <Login>{user.login}</Login>
 
